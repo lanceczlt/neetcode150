@@ -10,5 +10,25 @@ class Solution:
                     break;
                 letters.add(s[j])
             res = max(res, len(letters))
-        return res
+        return res  
 
+
+# sliding window
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        letterSet = set()
+        l = 0
+        res = 0
+
+        for r in range(len(s)):
+            while s[r] in letterSet:
+                letterSet.remove(s[l])
+                l+=1
+            letterSet.add(s[r])
+            res = max(res, r - l + 1)
+
+        return res
