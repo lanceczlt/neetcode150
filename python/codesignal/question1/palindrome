@@ -1,0 +1,16 @@
+
+
+def checkPalindrome(inputString: str) -> bool:
+    l = 0
+    r = len(inputString) - 1
+
+    while l < r:
+        if inputString[l] != inputString[r]:
+            return False
+        l += 1
+        r -= 1
+    
+    return True
+
+print(checkPalindrome("radar"))
+print(checkPalindrome("hello"))

@@ -1,0 +1,17 @@
+
+
+a =  [5, 12, 13, 9, 40, 41]
+
+res = [0] * (len(a) - 2)
+
+def sol(a):
+    for i in range(len(a) - 2):
+        if a[i] ** 2 + a[i + 1] ** 2 == a[i + 2] ** 2 and a[i + 1] ** 2 + a[i + 2] ** 2 == a[i] ** 2 and a[i] ** 2 + a[i + 2] ** 2 == a[i + 1] ** 2:
+            res[i] = 1
+        else:
+            res[i] = 0
+
+    print(res)
+    return res
+
+sol(a)

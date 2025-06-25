@@ -1,0 +1,30 @@
+from collections import Counter
+
+readings = [123, 456, 789, 101]
+
+# digit_sums = [sum_to_one_digit(num) for num in readings]
+
+res = []
+
+def sum_to_one_digit(n):
+    while n >= 10:
+        n = sum(int(d) for d in str(n))
+    return n
+
+def get_max_occur(nums):
+    digit_counts = Counter(nums)
+    max_count = max(digit_counts.values())
+
+    most_common = max(int(d) for d, count in digit_counts.items() if count == max_count)
+
+    return most_common
+
+
+for num in readings:
+    res.append(sum_to_one_digit(num))
+
+
+print(get_max_occur(res))
+
+
+

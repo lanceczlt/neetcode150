@@ -1,0 +1,22 @@
+input =  "Hello, I am h2ere!"
+
+letters = "heloiar"
+
+def valid_words(input, letters):
+    words = input.split()
+    count = 0
+    
+    for word in words:
+        valid = True
+        for letter in word:
+            if letter.isalpha():
+                if letter.lower() not in letters.lower():
+                    valid = False
+                    break
+        if valid:
+            count += 1
+        
+    return count
+
+print(valid_words(input,letters))
+            

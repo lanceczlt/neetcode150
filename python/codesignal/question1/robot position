@@ -1,0 +1,16 @@
+
+commands = "RLRLRLLLRLRLLLRLLLRRLLRLRR"
+
+def robot_pos(commands):
+    count = 0
+
+    for char in commands:
+        if char == "L":
+            count += 1
+        elif char == "R":
+            count -= 1
+
+    return "L" if count > 0 else ("" if count == 0 else "R")
+
+
+print(robot_pos(commands))

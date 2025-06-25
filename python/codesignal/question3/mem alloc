@@ -1,0 +1,47 @@
+memory = [0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0]
+queries = [(0, 8), (0, 5), (1, 1), (0, 5)]
+
+memory2 = [1]*16
+queries2 = [(0, 4)]
+
+
+def malloc(memory, queries):
+    res = []
+    allocations = []
+
+    for op, mem in queries:
+        if op == 0:
+            for i in range(0, len(memory), 8):
+                block = memory[i:i+8]
+                count = 0
+                for bit in block:
+                    if bit == 0:
+                        count +=1
+                    else:
+                        break
+                if count >= mem:
+                    for j in range(i, i + mem):
+                        memory[j] = 1
+                    allocations.append([i, mem]) 
+                    res.append(i)
+                    break
+            else:
+                res.append(-1)
+                
+        elif op == 1:
+            start, size = allocations[mem - 1]
+            
+
+            for index in range(start,start + size):
+                memory[index] = 0
+            
+            res.append(size)
+
+    return res
+        
+print(malloc(memory,queries))
+
+print(malloc(memory2[:], queries2))  # [-1]
+
+
+        

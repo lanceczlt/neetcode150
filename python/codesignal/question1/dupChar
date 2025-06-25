@@ -1,0 +1,15 @@
+s = "abac" 
+s2 = "abcdef" 
+
+
+def firstDuplicateChar(s: str) -> str:
+    charSet = set()
+
+    for char in s:
+        if char in charSet:
+            return char
+        charSet.add(char)
+    return '_'
+
+print(firstDuplicateChar(s))
+print(firstDuplicateChar(s2))

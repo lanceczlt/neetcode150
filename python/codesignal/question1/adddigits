@@ -1,0 +1,13 @@
+n = 29
+
+def addTwo(n: int) -> int:
+    first = n // 10
+    second = n % 10
+    
+    print(first)
+    print(second)
+
+    return first + second
+
+print(addTwo(n))
+

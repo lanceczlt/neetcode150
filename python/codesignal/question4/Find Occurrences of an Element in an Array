@@ -1,0 +1,19 @@
+class Solution(object):
+    def occurrencesOfElement(self, nums, queries, x):
+        """
+        :type nums: List[int]
+        :type queries: List[int]
+        :type x: int
+        :rtype: List[int]
+        """
+
+        indices = [i for i, val in enumerate(nums) if val == x]
+        res = []
+
+        for query in queries:
+            if query <= len(indices):
+                res.append(indices[query - 1])
+            else:
+                res.append(-1)
+
+        return res
